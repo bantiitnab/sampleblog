@@ -15,5 +15,7 @@ This project showcases two kind of relationships between table '1 to many' betwe
 2. run 'rails db:migrate' to create tables defined in migration files.
 2. run 'rails server' to start server.. 
 
+Link to brief wed development slide:
+https://docs.google.com/presentation/d/1cK6A3Vmk7vBHRkhgmF3vm0j174QfvRvFJtOz-tSvsXk/edit#slide=id.p
 
 Enjoy!!!
