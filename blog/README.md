@@ -1,5 +1,5 @@
 # README
-# what does it has?
+# what does it have?
 It has a simple blog made using ruby on rails, jquery, bootstrap, html, js, css , postgresql technologies.
 User can add post, tag it, comment on it.
 They can see post by titles or by tags.
