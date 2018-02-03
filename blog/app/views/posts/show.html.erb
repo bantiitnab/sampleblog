@@ -1,0 +1,62 @@
+<%= render 'partials/navbar' %>
+
+<div class='view-content container-fluid'>
+	<div class="row justify-content-center">
+		<div class="col-md-8">
+		<div class="post" id="post-<%= post.id %>">
+			<div class="title">
+				<%= post.title %>
+			</div>		
+			<div class="body">
+				<p><%= post.body %></p>
+			</div>
+			<div class="author">
+				<span>Written by: </span>
+				<%= post.created_by %>
+				<%= post.created_at %>
+			</div>
+			<div class="tags">				
+				<% post.tags.each do |tag| %>
+					<span><%= tag.name %>, </span>
+				<% end %>				
+			</div>
+			
+			<!-- py-3 : these are classes provided by bootstrap for doing padding... 
+					read the docs to understand more.. bootstrap 4
+			-->
+			<div class="py-2">
+				<a href="/posts/<%=post.id%>/edit">edit post</a>
+			</div>
+
+			<div class="comment-container">
+				<div class="comment-input-container">
+					<div class="row">
+						<div class="col-9">
+							<input type="text" name="comment" id="comment-input" class="form-control" placeholder="add comment">
+						</div>
+						<div class="col-3">
+							<button type="btn" class="btn btn-primary" id="add-comment-btn" post-id="<%= post.id %>">Add</button>
+						</div>
+					</div>
+				</div>
+				<div class="comments">
+					<div>Comments(<%= post.comments.count %>)</div>
+					<% post.comments.each do |comment| %>
+						<div data-id="<%= comment.id %>" class="comment pb-2">
+							<%= comment.body %>
+						</div>
+					<% end %>
+				</div>				
+			</div>
+			
+		</div>
+	</div>
+
+</div>
+
+<script>
+	// on page load call Post.init() function
+	$(function() {
+		Post.init();		
+	})
+</script>

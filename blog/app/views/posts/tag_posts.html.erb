@@ -1,0 +1,19 @@
+<%= render 'partials/navbar' %>
+
+<div class='view-content container-fluid'>
+	<div class="row">
+	<% @tags.each do |tag| %>
+		
+			<div class="col-md-6">
+				<div class="tag-name"><%= tag.name %></div>
+				<div class="tag-description"><%= tag.description %></div>
+				<div class="tag-posts">
+					<% tag.posts.each do |post| %>
+						<a href="/posts/<%=post.id%>"><%= post.title %></a>
+					<% end %>
+				</div>
+			</div>
+		
+	<% end %>
+	</div>
+</div>

@@ -1,0 +1,24 @@
+<%= render 'partials/navbar' %>
+<div class="view-content container-fluid">	
+
+	<h2>Edit Tag</h2>	
+
+	<form action="/tags/<%= @tag.id %>" method="post">
+		<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+		<!-- this input is used to creat patch request , a version of post request -->
+		<input type="text" name="_method" value="patch" hidden>
+		<div class="row">	
+			<div class="col-md-4">			
+				<input type="text" id="tag-name" name="name" class="form-control" value="<%= @tag.name %>">
+			</div>
+			<div class="col-md-4">				
+				<input type="text" id="tag-description" name="description" class="form-control" value="<%= @tag.description %>">
+			</div>
+			<div class="col-md-4">
+				<input type="submit" value="Submit" class="btn-primary">						
+			</div>		
+		</div>
+	</form>		
+	
+	
+</div>

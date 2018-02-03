@@ -1,0 +1,46 @@
+
+
+<%= render 'partials/navbar' %>
+
+
+<div class="view-content container-fluid">	
+
+	<h2>Welcome to the Blog Content</h2>
+	
+	<h4>Listing <%= @posts.count %> posts</h4>
+
+	<div class="posts-list">		
+		<% @posts.each do |post| %>
+				<!-- Print post title -->
+				<div class="row  post justify-content-start" id="post-<%= post.id %>">		
+					<div class="col-6">	
+						<a href="/posts/<%=post.id%>"><%= post.title %></a>
+					</div>
+					<!-- Add tags here-->
+					<div class="col-3 tags">
+						<% post.tags.each do |tag| %>
+							<span><%= tag.name %>, </span>
+						<% end %>
+					</div>
+					<!-- add btn to do stuff -->
+					<div class="col-3">
+						<a class="pl-3" href="/posts/<%=post.id%>/edit">edit</a>
+						<!-- delete-post-btn class is used to attach event listener to this element
+									data-id is used to store post id which we will use in js function-->						
+						<span class="btn delete-post-btn " data-id="<%=post.id%>">delete</span>
+					</div>
+				</div>
+			
+		<% end %>
+	<div>
+		<!-- this gives an token which we send along with request and it tells server that request is authenticated -->
+		<!-- we will take fetch this token in js -->
+		<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+</div>
+
+<script>
+	// on page load call Post.init() function
+	$(function() {
+		Post.init();		
+	})
+</script>

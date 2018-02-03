@@ -1,0 +1,24 @@
+<%= render 'partials/navbar' %>
+
+<div class='view-content container-fluid'>
+	<h3>Edit Post</h3>
+
+	<div class="row">
+		<div class="col-12 col-md-6">
+			<form action="/posts/<%= @post.id %>" method="post">
+				<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+				
+				<label for="name">Title:</label>
+				<input type="text" class="form-control" name="title" id="title" value="<%= @post.title %>">
+
+				<label for="age">Body:</label>
+				<input type="text" class="form-control" name="body" id="body" value="<%= @post.body %>">
+
+				<label for="address">User name:</label>
+				<input type="text" class="form-control mb-3" name="user_name" id="user-name" value="<%= @post.created_by %>" disabled>
+
+				<input type="submit" value="Submit" class="btn-primary">			
+			</form>
+		</div>
+	</div>
+</div>
